@@ -37,3 +37,12 @@ a {
     text-align: center;
     margin: 10px 0;
 }
+
+#past {
+    width: 90%;
+    max-width: 500px;
+    margin: 5px auto;
+    padding: 0 25px;
+    box-sizing: border-box;
+    color: #5c5c5c;
+}

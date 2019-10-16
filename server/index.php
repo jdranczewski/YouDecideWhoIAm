@@ -1,3 +1,17 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "password";
+$dbname = "YouDecideWhoIAm";
+
+// Establish a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -28,8 +42,26 @@
             <a href="https://www.facebook.com/jakub.dranczewski" target="_blank">My Facebook</a> •
             <a href="https://github.com/jdranczewski/YouDecideWhoIAm" target="_blank">Code on GitHub</a>
             <div id="past">
-                Tonight I've been: TODO
+                I have so far been:
+                <?php
+                // Select displayed entries
+                $sql = "SELECT text FROM submissions WHERE displayed = 1 ORDER BY updated DESC";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    $array = [];
+                    // Send the text
+                    while($row = mysqli_fetch_assoc($result)) {
+                        array_push($array, $row["text"]);
+                    }
+                    echo implode(", ", $array).".";
+                } else {
+                    echo "no one.";
+                }
+                ?>
             </div>
         </div>
     </body>
 </html>
+
+<?php $conn->close(); ?>

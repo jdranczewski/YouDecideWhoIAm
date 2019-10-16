@@ -40,6 +40,7 @@ if ($result->num_rows > 0) {
 }
 
 // Echo out a delay in minutes before the next response should be requested
-echo "\n10"
+echo "\n10";
 
+$conn->close();
 ?>
