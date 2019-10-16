@@ -16,12 +16,24 @@ $result = $conn->query($sql);
 
 // echo the text if at least one entry returned
 if ($result->num_rows > 0) {
+    // Send the text
     while($row = mysqli_fetch_assoc($result)) {
-        echo $row["text"];
+        $text = $row["text"];
         $id  = $row["id"];
+        echo $text;
     }
+
+    // Update the 'displayed' flag
     $sql = "UPDATE submissions SET displayed = 1 WHERE id = ".$id;
     $conn->query($sql);
+
+
+    // Send an update to a Telegram Channel of choice
+    // More details here: https://medium.com/@xabaras/sending-a-message-to-a-telegram-channel-the-easy-way-eb0a0b32968
+    $telegram_bot_token = "token";
+    $channel_name = "@handle";
+    $url = "https://api.telegram.org/bot$telegram_bot_token/sendMessage?chat_id=$channel_name&text=$text";
+    file_get_contents($url);
 } else {
     // Fallback if no submissions left
     echo "Tabula rasa\nSubmit your own ideas!";
