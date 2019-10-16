@@ -3,6 +3,10 @@ html, body {
     background-color: #eeeeee;
 }
 
+a {
+    color: #2196f3;
+}
+
 #main {
     width: 90%;
     max-width: 500px;
@@ -17,10 +21,19 @@ html, body {
 #text-input {
     display: block;
     width: 100%;
+    font-size: 1.5em;
+    background-color: #f0f0f0;
+    border: #959595 1px solid;
+    padding: 3px;
 }
 
 #submit {
     display: block;
     margin: 10px auto 0 auto;
     padding: 10px;
+}
+
+#footer {
+    text-align: center;
+    margin: 10px 0;
 }
