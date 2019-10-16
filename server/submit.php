@@ -36,8 +36,11 @@ if ($_POST["text"] !== "") {
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        Thank you for submitting <?php echo $_POST["text"]?>!<br><br>
-        You will be redirected to the home page in a few seconds, where you can make a new submission!
+        <div id="main">
+            Thank you for submitting <b>"<?php echo $_POST["text"]?>"</b>!<br><br>
+            You will be redirected to the home page in a few seconds, where you can make a new submission!<br><br>
+            <a href="index.php">Go back!</a>
+        </div>
     </body>
 </html>
 

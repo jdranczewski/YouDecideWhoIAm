@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    background-color: #eeeeee;
+}
+
+#main {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: grey 0 1px 4px -2px;
+}
+
+#text-input {
+    display: block;
+    width: 100%;
+}
+
+#submit {
+    display: block;
+    margin: 10px auto 0 auto;
+    padding: 10px;
+}

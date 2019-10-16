@@ -9,9 +9,11 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <form action="submit.php" method="post">
-            <input type="text" name="text" maxlength="24">
-            <input type="submit" value="Submit">
-        </form>
+        <div id="main">
+            <form action="submit.php" method="post">
+                <input type="text" name="text" maxlength="24" id="text-input">
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
     </body>
 </html>

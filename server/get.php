@@ -39,4 +39,7 @@ if ($result->num_rows > 0) {
     echo "Tabula rasa\nSubmit your own ideas!";
 }
 
+// Echo out a delay in minutes before the next response should be requested
+echo "\n10"
+
 ?>
