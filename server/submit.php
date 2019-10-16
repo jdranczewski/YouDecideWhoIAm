@@ -11,17 +11,23 @@ if ($conn->connect_error) {
 }
 
 // Prepare the statement and insert value into the db
-if ($_POST["text"] !== "") {
+$error = "";
+if ($_POST["text"] == "") {
+    $error = "submission empty";
+    header( "refresh:10;url=index.php" );
+} else if (strlen($_POST["text"]) > 24) {
+    $error = "submission too long (24 characters is the limit)";
+    header( "refresh:10;url=index.php" );
+} else {
     $sql = "INSERT INTO submissions (text) VALUES (?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_POST["text"]);
     $stmt->execute();
     if ($stmt->error) {
-        echo "Error: ".$stmt->error;
-    } else {
-        header( "refresh:5;url=index.php" );
+        $error = $stmt->error;
     }
     $stmt->close();
+    header( "refresh:5;url=index.php" );
 }
 ?>
 
@@ -38,6 +44,11 @@ if ($_POST["text"] !== "") {
     <body>
         <div id="main">
             Thank you for submitting <b>"<?php echo $_POST["text"]?>"</b>!<br><br>
+            <?php
+            if ($error != "") {
+                echo "<b>Unfortunately, there was an error with your submission: </b>".$error.".<br><br>";
+            }
+            ?>
             You will be redirected to the home page in a few seconds, where you can make a new submission!<br><br>
             <a href="index.php">Go back!</a>
         </div>
