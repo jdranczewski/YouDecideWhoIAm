@@ -15,7 +15,7 @@ $error = "";
 if ($_POST["text"] == "") {
     $error = "submission empty";
     header( "refresh:10;url=index.php" );
-} else if (strlen($_POST["text"]) > 24) {
+} else if (strlen($_POST["text"]) > 32) {
     $error = "submission too long (24 characters is the limit)";
     header( "refresh:10;url=index.php" );
 } else {

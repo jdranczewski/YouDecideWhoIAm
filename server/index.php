@@ -34,7 +34,7 @@ if ($conn->connect_error) {
             I'll get a smartwatch notification every time a new submission comes through to my badge. If (for whatever contrived reason) you'd like to be notified too, <a href="https://t.me/YouDecideWhoIAm" target="_blank" title="The YDWIA Telegram channel">you can</a>!
             <h2>TL;DR: Put in a thing you want me to be below. My badge will randomly display it.</h2>
             <form action="submit.php" method="post">
-                <input type="text" name="text" maxlength="24" id="text-input" placeholder="Type here...">
+                <input type="text" name="text" maxlength="32" id="text-input" placeholder="Type here...">
                 <input type="submit" value="Submit" id="submit">
             </form>
         </div>
