@@ -32,7 +32,9 @@ def main():
 
     # Show the IP address and blink cursor
     lcd.clear()
+    lcd.message = "Waiting for\nnetwork..."
     sleep(10)
+    lcd.clear()
     lcd.message = ip()
     sleep(1)
 
