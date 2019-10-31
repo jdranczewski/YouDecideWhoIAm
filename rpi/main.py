@@ -70,12 +70,12 @@ def main():
             sleep(0.5)
             if button.value:
                 total += 1
-        if total >= 5:
+        if total >= 4:
             continue
         lcd.blink = False
 
         # Sleep for the designated amount of time
-        sleep(timeout)
+        sleep(timeout*60)
 
 
 if __name__ == "__main__":
