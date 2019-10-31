@@ -45,6 +45,8 @@ def main():
         payload = get_message().split("\n")
         text = "\n".join(payload[:-1])
         text = text.replace("\\n", "\n")
+        if len(text) > 16 and not text.count("\n"):
+            text = text[:16] + "\n" + text[16:]
         try:
             timeout = int(payload[-1])
         except ValueError:
