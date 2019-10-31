@@ -33,6 +33,7 @@ def main():
     lcd.clear()
     lcd.message = ip()
     lcd.blink = True
+    lcd.column_align = True
     sleep(1)
 
     # Allow stopping for debugging purposes
@@ -52,9 +53,13 @@ def main():
         # Display the message
         for i in range(16):
             lcd.move_left()
-            sleep(0.1)
+            sleep(0.2)
         lcd.clear()
+        lcd.cursor_position(16,0)
         lcd.message = text
+        for i in range(16):
+            lcd.move_left()
+            sleep(0.2)
         # Allow 10 seconds to cancel
         # Sleep for the designated amount of time
         flag = False
