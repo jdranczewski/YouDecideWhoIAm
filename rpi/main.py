@@ -24,6 +24,7 @@ def main():
     lcd_d5 = digitalio.DigitalInOut(board.D24)
     lcd_d6 = digitalio.DigitalInOut(board.D23)
     lcd_d7 = digitalio.DigitalInOut(board.D18)
+    button = digitalio.DigitalInOut(board.D26)
 
     # Setup the lcd
     lcd = characterlcd.Character_LCD_Mono(lcd_rs, lcd_en, lcd_d4, lcd_d5,
@@ -38,7 +39,6 @@ def main():
     # Allow stopping for debugging purposes
     flag = True
     while flag:
-        pass
         # Get a message
         payload = get_message().split("\n")
         text = "\n".join(payload[:-1])
@@ -52,10 +52,20 @@ def main():
         # Display the message
         for i in range(16):
             lcd.move_left()
-            sleep(0.3)
+            sleep(0.2)
         lcd.clear()
         lcd.message = text
+
         # Allow 10 seconds to cancel
+        total = 0
+        for i in range(10):
+            sleep(0.5)
+            if button.value:
+                total += 1
+        if total >= 5:
+            continue
+        print("Not broken")
+
         # Sleep for the designated amount of time
         flag = False
 
