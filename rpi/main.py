@@ -58,6 +58,7 @@ def main():
             lcd.move_left()
             sleep(0.2)
         lcd.clear()
+        lcd.cursor_position(0,0)
         lcd.message = text
         lcd.blink = True
         if len(text.split("\n")[-1]) >= 16:
