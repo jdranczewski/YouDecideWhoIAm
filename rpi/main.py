@@ -32,6 +32,7 @@ def main():
 
     # Show the IP address and blink cursor
     lcd.clear()
+    sleep(10)
     lcd.message = ip()
     sleep(1)
 
