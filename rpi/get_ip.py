@@ -20,6 +20,7 @@ def parse_ip(interface):
     find_ip = "ip addr show %s" % interface
     find_ip = "ip addr show %s" % interface
     ip_parse = run_cmd(find_ip)
+    ip = None
     for line in ip_parse.splitlines():
         if "inet " in line:
             ip = line.split(' ')[5]
