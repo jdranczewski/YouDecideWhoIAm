@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
     file_get_contents($url);
 } else {
     // Fallback if no submissions left
-    echo "Tabula rasa\nSubmit your own ideas!";
+    echo "Tabula rasa!\nSubmit your idea";
 }
 
 // Echo out a delay in minutes before the next response should be requested
