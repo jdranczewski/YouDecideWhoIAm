@@ -43,11 +43,11 @@ def main():
         payload = get_message().split("\n")
         text = "\n".join(payload[:-1])
         text = text.replace("\\n", "\n")
-        print(text)
         try:
             timeout = int(payload[-1])
         except ValueError:
             timeout = 5
+        print(timeout, text)
         # Display the message
         lcd.clear()
         lcd.message = text
