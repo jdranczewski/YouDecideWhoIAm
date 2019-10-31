@@ -22,25 +22,24 @@ if ($result->num_rows > 0) {
         $id  = $row["id"];
         echo $text;
     }
+    echo "\n10";
 
     // Update the 'displayed' flag
     $sql = "UPDATE submissions SET displayed = 1 WHERE id = ".$id;
     $conn->query($sql);
 
-
     // Send an update to a Telegram Channel of choice
     // More details here: https://medium.com/@xabaras/sending-a-message-to-a-telegram-channel-the-easy-way-eb0a0b32968
-    $telegram_bot_token = "token";
-    $channel_name = "@handle";
+    $telegram_bot_token = "932624082:AAENrwVwbUHKoZalf2GATFs40yVu-0eEx5E";
+    $channel_name = "@YouDecideWhoIAm";
     $url = "https://api.telegram.org/bot$telegram_bot_token/sendMessage?chat_id=$channel_name&text=$text";
     file_get_contents($url);
 } else {
     // Fallback if no submissions left
-    echo "Tabula rasa!\nSubmit your idea";
+    echo "Tabula rasa!\nSubmit your idea\n2";
 }
 
 // Echo out a delay in minutes before the next response should be requested
-echo "\n10";
 
 $conn->close();
 ?>

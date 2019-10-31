@@ -71,7 +71,7 @@ def main():
         lcd.blink = False
 
         # Sleep for the designated amount of time
-        flag = False
+        sleep(timeout)
 
 
 if __name__ == "__main__":
