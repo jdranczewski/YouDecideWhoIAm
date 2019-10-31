@@ -42,6 +42,7 @@ def main():
         # Get a message
         payload = get_message().split("\n")
         text = "\n".join(payload[:-1])
+        text = text.replace("\\n", "\n")
         print(text)
         try:
             timeout = int(payload[-1])
