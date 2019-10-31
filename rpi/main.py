@@ -35,7 +35,9 @@ def main():
     lcd.blink = True
     sleep(1)
 
-    while True:
+    # Allow stopping for debugging purposes
+    flag = True
+    while flag:
         pass
         # Get a message
         payload = get_message().split("\n")
@@ -49,6 +51,7 @@ def main():
         lcd.message = text
         # Allow 10 seconds to cancel
         # Sleep for the designated amount of time
+        flag = False
 
 
 if __name__ == "__main__":
