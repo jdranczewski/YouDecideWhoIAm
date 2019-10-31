@@ -60,6 +60,8 @@ def main():
         lcd.clear()
         lcd.message = text
         lcd.blink = True
+        if len(text) > 32:
+            lcd.cursor_position(16,1)
 
         # Allow 10 seconds to cancel
         total = 0
@@ -69,7 +71,6 @@ def main():
                 total += 1
         if total >= 5:
             continue
-        print("Not broken")
         lcd.blink = False
 
         # Sleep for the designated amount of time
