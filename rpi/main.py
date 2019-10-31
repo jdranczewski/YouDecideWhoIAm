@@ -57,7 +57,7 @@ def main():
         lcd.clear()
         lcd.cursor_position(16,0)
         lcd.message = text
-        for i in range(16):
+        for i in range(15):
             lcd.move_left()
             sleep(0.2)
         # Allow 10 seconds to cancel
