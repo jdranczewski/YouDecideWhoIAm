@@ -48,7 +48,11 @@ def main():
         except ValueError:
             timeout = 5
         print(timeout, text)
+
         # Display the message
+        for i in range(16):
+            lcd.move_left()
+            sleep(0.1)
         lcd.clear()
         lcd.message = text
         # Allow 10 seconds to cancel
