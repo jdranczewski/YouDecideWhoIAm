@@ -42,7 +42,18 @@ if ($conn->connect_error) {
             <a href="https://www.facebook.com/jakub.dranczewski" target="_blank">My Facebook</a> •
             <a href="https://github.com/jdranczewski/YouDecideWhoIAm" target="_blank">Code on GitHub</a>
             <div id="past">
-                I have so far been:
+                <?php
+                // Select displayed entries
+                $sql = "SELECT COUNT(*) AS count FROM submissions";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo $row["count"];
+                    }
+                }
+                ?>
+                submissions made up till now. I have so far been:
                 <?php
                 // Select displayed entries
                 $sql = "SELECT text FROM submissions WHERE displayed = 1 ORDER BY updated DESC";
