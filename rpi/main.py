@@ -60,8 +60,8 @@ def main():
         lcd.clear()
         lcd.message = text
         lcd.blink = True
-        if len(text) > 32:
-            lcd.cursor_position(16,1)
+        if len(text.split("\n")[-1]) >= 16:
+            lcd.cursor_position(15,1)
 
         # Allow 10 seconds to cancel
         total = 0
