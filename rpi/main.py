@@ -33,7 +33,6 @@ def main():
     # Show the IP address and blink cursor
     lcd.clear()
     lcd.message = ip()
-    lcd.blink = True
     sleep(1)
 
     # Allow stopping for debugging purposes
@@ -55,16 +54,18 @@ def main():
             sleep(0.2)
         lcd.clear()
         lcd.message = text
+        lcd.blink = True
 
         # Allow 10 seconds to cancel
         total = 0
-        for i in range(10):
+        for i in range(20):
             sleep(0.5)
             if button.value:
                 total += 1
         if total >= 5:
             continue
         print("Not broken")
+        lcd.blink = False
 
         # Sleep for the designated amount of time
         flag = False
