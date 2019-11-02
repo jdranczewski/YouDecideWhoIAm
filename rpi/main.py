@@ -10,7 +10,8 @@ import digitalio
 import adafruit_character_lcd.character_lcd as characterlcd
 
 def get_message():
-    r = get("https://jdranczewski.cba.pl/YouDecideWhoIAm/get.php")
+    token = "token"
+    r = get("https://jdranczewski.cba.pl/YouDecideWhoIAm/get.php?token="+token)
     if r.status_code == 200:
         return r.text
     else:

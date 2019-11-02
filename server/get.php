@@ -3,11 +3,16 @@ $servername = "localhost";
 $username = "root";
 $password = "password";
 $dbname = "YouDecideWhoIAm";
+// Reguire a token as a GET parameter for verification
+$token = "token";
+if ($_GET["token"] !== $token) {
+    die("Token authentication failed!\n2");
+}
 
 // Establish a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error . "\n2");
 }
 
 // Select a random entry
@@ -30,8 +35,8 @@ if ($result->num_rows > 0) {
 
     // Send an update to a Telegram Channel of choice
     // More details here: https://medium.com/@xabaras/sending-a-message-to-a-telegram-channel-the-easy-way-eb0a0b32968
-    $telegram_bot_token = "932624082:AAENrwVwbUHKoZalf2GATFs40yVu-0eEx5E";
-    $channel_name = "@YouDecideWhoIAm";
+    $telegram_bot_token = "token";
+    $channel_name = "@handle";
     $url = "https://api.telegram.org/bot$telegram_bot_token/sendMessage?chat_id=$channel_name&text=$text";
     file_get_contents($url);
 } else {
